@@ -7,17 +7,28 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
-    
+    @ObservedObject var taskListViewModel = TaskListViewModel()
     let tasks = testDataTasks
+    @State var presentAddNewItem = false
     
     var body: some View {
         NavigationView{
             VStack(alignment: .leading) {
-                List(tasks) { task in
-                    TaskCell(task: task)
+                List{
+                    ForEach(taskListViewModel.taskCellViewModels) { taskCellViewModels in
+                        TaskCell(taskCellViewModels: taskCellViewModels)
+                    }
+                    if presentAddNewItem {
+                        TaskCell(taskCellViewModels: TaskCellViewModel(task: Task(title: "", completed: false))) { task in
+                            self.taskListViewModel.addTask(task: task)
+                            self.presentAddNewItem.toggle()
+                            
+                        }
+                    }
                 }
-                Button(action: {}){
+                Button(action: { self.presentAddNewItem.toggle() }){
                     HStack {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
@@ -41,13 +52,22 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct TaskCell: View {
-    let task: Task
+    
+    @ObservedObject var taskCellViewModels: TaskCellViewModel
+    
+    var onCommit: (Task) -> (Void) = {_ in }
+    
     var body: some View {
         HStack{
-            Image(systemName: task.completed ? "checkmark.circle.fill" : "circle")
+            Image(systemName: taskCellViewModels.task.completed ? "checkmark.circle.fill" : "circle")
                 .resizable()
                 .frame(width: 20, height: 20)
-            Text(task.title)
+                .onTapGesture {
+                    self.taskCellViewModels.task.completed.toggle()
+                }
+            TextField("Enter the task title", text: $taskCellViewModels.task.title, onCommit: {
+                self.onCommit(self.taskCellViewModels.task)
+            })
         }
     }
 }

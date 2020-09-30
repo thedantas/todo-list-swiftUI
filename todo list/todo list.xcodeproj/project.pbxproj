@@ -16,6 +16,8 @@
 		508B9E1425221ADB00DC9535 /* todo_listTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508B9E1325221ADB00DC9535 /* todo_listTests.swift */; };
 		508B9E1F25221ADB00DC9535 /* todo_listUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508B9E1E25221ADB00DC9535 /* todo_listUITests.swift */; };
 		508B9E4025221B2800DC9535 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508B9E3F25221B2800DC9535 /* Task.swift */; };
+		508B9E4A252513DE00DC9535 /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508B9E49252513DE00DC9535 /* TaskCellViewModel.swift */; };
+		508B9E52252515DF00DC9535 /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508B9E51252515DF00DC9535 /* TaskListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		508B9E1E25221ADB00DC9535 /* todo_listUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo_listUITests.swift; sourceTree = "<group>"; };
 		508B9E2025221ADB00DC9535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		508B9E3F25221B2800DC9535 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		508B9E49252513DE00DC9535 /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellViewModel.swift; sourceTree = "<group>"; };
+		508B9E51252515DF00DC9535 /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		508B9DFB25221AD900DC9535 /* todo list */ = {
 			isa = PBXGroup;
 			children = (
+				508B9E48252513C200DC9535 /* ViewModels */,
 				508B9E2F25221AE500DC9535 /* AppDelegate */,
 				508B9E4425221B7700DC9535 /* Views */,
 				508B9E3325221AF300DC9535 /* Model */,
@@ -161,6 +166,15 @@
 				508B9E0025221AD900DC9535 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		508B9E48252513C200DC9535 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				508B9E49252513DE00DC9535 /* TaskCellViewModel.swift */,
+				508B9E51252515DF00DC9535 /* TaskListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +311,8 @@
 				508B9DFD25221AD900DC9535 /* AppDelegate.swift in Sources */,
 				508B9DFF25221AD900DC9535 /* SceneDelegate.swift in Sources */,
 				508B9E0125221AD900DC9535 /* ContentView.swift in Sources */,
+				508B9E4A252513DE00DC9535 /* TaskCellViewModel.swift in Sources */,
+				508B9E52252515DF00DC9535 /* TaskListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
